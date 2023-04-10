@@ -1,11 +1,44 @@
-.container{
+.container {
     display: flex;
-    flex-wrap: wrap;
-    width: 800px;
+    justify-content: space-evenly;
 }
+
 .block {
     box-sizing: border-box;
-    height: 50px;
-    width: 50px;
+    width: 20px;
+    height: 20px;
     border: 2px solid black;
+}
+
+.blocks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: aqua;
+    width: 600px
+}
+.blockContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+    width: 800px;
+    gap: 16px
+}
+
+.canvas, .size {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 40px;
+}
+
+.canvas {
+    font-size: 80px;
+}
+
+.white {
+    width: 600px;
+    height: 600px;
+    background-color: red;
 }
