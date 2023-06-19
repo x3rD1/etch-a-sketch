@@ -1,13 +1,39 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(abstract-colorful-geometric-overlapping-background-and-texture-free-vector.jpg);
+    background-size: cover;
+}
+.main {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.title {
+    font-family: monospace;
+    font-size: 120px;
+    font-weight: 600;
+    width: 400px;
+    text-align: center;
+    margin: 60px;
+}
+
+.draw {
+    font-size: 40px;
+    width: 280px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+
 .container {
     display: flex;
     justify-content: space-evenly;
-}
-
-.block {
-    box-sizing: border-box;
-    width: 20px;
-    height: 20px;
-    border: 2px solid black;
 }
 
 .blocks {
@@ -15,7 +41,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    background-color: aqua;
+    background-color: papayawhip;
     width: 600px
 }
 .blockContainer {
@@ -25,12 +51,18 @@
     align-items: center;
     height: 800px;
     width: 800px;
-    gap: 16px
+    gap: 16px;
+    background-image: url(istockphoto-1412684808-612x612.jpg);
+    background-size: cover;
 }
 
 .canvas, .size {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 40px;
+    font-weight: 600;
+    font-size: 50px;
+    background: -webkit-linear-gradient(45deg, #a0990e, rgb(184, 96, 110), #cc1348, purple, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .canvas {
@@ -40,5 +72,24 @@
 .white {
     width: 600px;
     height: 600px;
-    background-color: red;
+    background-color: rgb(230, 202, 167);
+}
+.grid, .colors {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    flex: 1;
+    background-color: cornsilk;
+}
+.grid {
+    box-sizing: border-box;
+    border-right: 100px solid rgb(255, 255, 255);
+    border-style: outset;
+    
+}
+.colors {
+    box-sizing: border-box;
+    border-left: 100px solid rgb(255, 255, 255);
+    border-style: inset;
 }

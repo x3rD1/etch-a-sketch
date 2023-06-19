@@ -1,26 +1,60 @@
-const container = document.querySelector('.container');
-const colors = document.querySelector('.colors');
-const newGrid= document.querySelector('.newGrid');
-const bC = document.querySelector('.blockContainer')
-const size = document.querySelector('.size');
+const container = document.createElement('div');
+container.classList.add('container');
 
-const blocks = document.createElement('div');
-blocks.classList.add('blocks');
+const main = document.querySelector('.main');
+const body = document.querySelector('body');
+
+const grid = document.createElement('div');
+grid.classList.add('grid');
+    const newGrid = document.createElement('button');
+    newGrid.classList.add('newGrid');
+    newGrid.textContent = 'New Grid';
+
+const bC = document.createElement('div')
+bC.classList.add('blockContainer');
+    const canvas = document.createElement('div');
+    canvas.classList.add('canvas');
+    canvas.textContent = 'Canvas';
+    bC.appendChild(canvas);
+    const blocks = document.createElement('div');
+    blocks.classList.add('blocks');
+    bC.appendChild(blocks);
+    const size = document.createElement('div');
+    size.classList.add('size');
+    size.textContent = 'Choose grid size';
+    bC.appendChild(size);
+container.appendChild(bC);
+
+const colors = document.createElement('div');
+colors.classList.add('colors');
+    const button = document.createElement('button');
+    button.textContent = 'Choose colors';
+    colors.appendChild(button);
+container.appendChild(colors);
 
 
-//create 16x16 default canvas
+const draw = document.querySelector('.draw');
+draw.addEventListener('click', () => {
+    body.removeChild(main);
+    body.setAttribute('style', 'background: white');
+    body.appendChild(container);
+    grid.appendChild(newGrid);
+    container.insertBefore(grid, bC);
+});
 
-   const white_canvas = document.createElement('div');
-    white_canvas.classList.add('white')
-    bC.insertBefore(white_canvas, size);
 
-
+//default canvas
+const white_canvas = document.createElement('div');
+white_canvas.classList.add('white')
+bC.insertBefore(white_canvas, size);
 
 
 function changeGrid(){
-    let num = prompt('What is the size you desire?');
-    bC.removeChild(white_canvas);
-    bC.insertBefore(blocks, size);
+    let num;
+    do {
+        num = prompt('What is the size you desire? Max size is 100');
+    }while(num > 100);
+    white_canvas.classList.remove('white');
     while (blocks.firstChild) {
         blocks.removeChild(blocks.firstChild);
     }
@@ -32,11 +66,11 @@ function changeGrid(){
         blocks.appendChild(block);
         bC.insertBefore(blocks, size);
         container.insertBefore(bC, colors);
+        size.textContent = `${num}`+ ' x ' + `${num}`;
         block.addEventListener('mouseover', () => {
             block.style.backgroundColor = 'black';
         });
     }
-    
 }
 
 newGrid.addEventListener('click', changeGrid);
